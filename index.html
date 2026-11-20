@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI × Physics Seminar · Perimeter Institute</title>
+<meta name="description" content="AI × Physics seminar series at Perimeter Institute: upcoming and past talks.">
+<style>
+  :root {
+    --blue: #0b75b7; --blue-dark: #095e93;
+    --text: #2d2d2d; --muted: #474747; --soft: #6f6f6f;
+    --page: #f0f0f0; --card: #ffffff; --line: #dcdcdc; --black: #000000;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--page); color: var(--text);
+    font: 16px/1.6 "Helvetica Neue", Helvetica, Inter, Arial, sans-serif;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--blue); }
+  a:hover { color: var(--blue-dark); }
+  ul { list-style: none; margin: 0; padding: 0; }
+
+  /* Hero: black band with an angled bottom edge */
+  .hero {
+    background: linear-gradient(120deg, #000 0%, #0a0f14 55%, #0b3d5f 100%);
+    color: #fff; padding: 28px 0 96px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 56px), 78% 100%, 0 100%);
+  }
+  .brand {
+    display: inline-block; color: #fff; text-decoration: none;
+    font-size: 14px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  }
+  .brand img { display: block; }
+  .hero h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.1; font-weight: 700; margin: 72px 0 16px; }
+  .hero p { font-size: 19px; line-height: 1.55; margin: 0; max-width: 62ch; }
+
+  section { margin-top: 56px; }
+  h2 { font-size: 28px; font-weight: 600; line-height: 1.2; margin: 0 0 20px; }
+
+  /* Talk cards */
+  .event {
+    display: grid; grid-template-columns: 96px 1fr; background: var(--card);
+    margin-bottom: 12px;
+  }
+  .date {
+    background: var(--blue); color: #fff; text-align: center;
+    padding: 18px 8px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .date .mon { font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+  .date .day { font-size: 36px; font-weight: 700; line-height: 1.05; }
+  .date .wd  { font-size: 13px; }
+  .body { padding: 18px 22px 20px; min-width: 0; }
+  .label {
+    font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 4px;
+  }
+  .event h3 { margin: 0 0 4px; font-size: 21px; line-height: 1.3; font-weight: 600; }
+  .speaker { margin: 0; font-weight: 600; }
+  .speaker span { font-weight: 400; color: var(--muted); }
+  .meta { font-size: 14px; color: var(--soft); margin: 8px 0 0; }
+  .meta a { margin-right: 14px; font-weight: 600; }
+  .btn {
+    display: inline-block; margin-top: 14px; background: var(--blue); color: #fff;
+    font-size: 14px; font-weight: 600; text-decoration: none; padding: 10px 30px 10px 18px;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 100%, 0 100%);
+  }
+  .btn:hover { background: var(--blue-dark); color: #fff; }
+  details { margin-top: 12px; font-size: 15px; }
+  summary { cursor: pointer; color: var(--blue); font-weight: 600; font-size: 14px; }
+  details p { margin: 8px 0 0; color: var(--muted); }
+
+  /* Past talks: compact rows */
+  .past .event { grid-template-columns: 130px 1fr; margin-bottom: 2px; }
+  .past .date {
+    background: none; color: var(--soft); text-align: left; font-size: 14px;
+    padding: 16px 0 16px 22px; justify-content: flex-start;
+  }
+  .past .body { padding: 14px 22px 16px 12px; }
+  .past .event h3 { font-size: 17px; }
+  .past .speaker { font-size: 15px; font-weight: 400; }
+
+  .panel { background: var(--card); padding: 22px 24px; }
+  .panel p { margin: 4px 0; }
+  .organizers { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .organizers li { background: var(--card); padding: 18px 20px; border-top: 3px solid var(--blue); }
+  .organizers .name { font-weight: 600; }
+  .organizers .aff { font-size: 14px; color: var(--soft); }
+  .empty { background: var(--card); padding: 22px 24px; color: var(--muted); }
+
+  footer { background: var(--black); color: #fff; margin-top: 80px; padding: 36px 0; font-size: 14px; line-height: 1.7; }
+  footer a { color: #fff; }
+
+  @media (max-width: 560px) {
+    .hero { padding-bottom: 72px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), 70% 100%, 0 100%); }
+    .hero h1 { margin-top: 48px; }
+    .hero p { font-size: 17px; }
+    .event { grid-template-columns: 72px 1fr; }
+    .date .day { font-size: 28px; }
+    .body { padding: 14px 16px 16px; }
+    .past .event { grid-template-columns: 1fr; }
+    .past .date { padding: 14px 16px 0; }
+    .past .body { padding: 2px 16px 14px; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <a class="brand" href="https://perimeterinstitute.ca"><img src="pi-logo-white.svg" alt="Perimeter Institute" width="151" height="50"></a>
+    <h1 id="title"></h1>
+    <p id="blurb"></p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>Upcoming talks</h2>
+    <ul id="upcoming"></ul>
+  </section>
+
+  <section id="logistics-section">
+    <h2>Logistics</h2>
+    <div class="panel" id="logistics"></div>
+  </section>
+
+  <section>
+    <h2>Organizers</h2>
+    <ul class="organizers" id="organizers"></ul>
+  </section>
+
+  <section class="past" id="past-section">
+    <h2>Past talks</h2>
+    <ul id="past"></ul>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" id="footer"></div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, text) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  };
+  const link = (href, text, cls) => {
+    const a = el("a", cls, text);
+    a.href = href;
+    return a;
+  };
+
+  // Parse "YYYY-MM-DD" as a local date (avoids UTC off-by-one).
+  const parseDate = (s) => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+  const fmt = (d, opts) => d.toLocaleDateString("en-CA", opts);
+
+  function renderEvent(ev, { past = false, next = false } = {}) {
+    const d = parseDate(ev.date);
+    const li = el("li", "event");
+
+    const date = el("div", "date");
+    if (past) {
+      date.textContent = fmt(d, { month: "short", day: "numeric", year: "numeric" });
+    } else {
+      date.append(el("div", "mon", fmt(d, { month: "short" })),
+                  el("div", "day", d.getDate()),
+                  el("div", "wd", fmt(d, { weekday: "long" })));
+    }
+
+    const body = el("div", "body");
+    if (next) body.append(el("div", "label", "Next talk"));
+    body.append(el("h3", null, ev.title || "TBA"));
+    const sp = el("p", "speaker");
+    sp.append(ev.speakerUrl ? link(ev.speakerUrl, ev.speaker) : (ev.speaker || "Speaker TBA"));
+    if (ev.affiliation) sp.append(el("span", null, " · " + ev.affiliation));
+    body.append(sp);
+
+    if (!past) {
+      const bits = [ev.time, ev.room || SERIES.where].filter(Boolean);
+      if (bits.length) body.append(el("p", "meta", bits.join(" · ")));
+    } else if (ev.recording || ev.slides) {
+      const meta = el("p", "meta");
+      if (ev.recording) meta.append(link(ev.recording, "Recording"));
+      if (ev.slides) meta.append(link(ev.slides, "Slides"));
+      body.append(meta);
+    }
+
+    if (ev.abstract) {
+      const det = el("details");
+      det.append(el("summary", null, "Abstract"), el("p", null, ev.abstract));
+      body.append(det);
+    }
+    if (!past && ev.link) body.append(link(ev.link, "Join online", "btn"));
+
+    li.append(date, body);
+    return li;
+  }
+
+  // Header
+  $("title").textContent = SERIES.title;
+  $("blurb").textContent = SERIES.blurb;
+
+  // Events: a talk stays "upcoming" through the end of its day.
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const sorted = [...EVENTS].sort((a, b) => a.date.localeCompare(b.date));
+  const upcoming = sorted.filter((e) => parseDate(e.date) >= today);
+  const past = sorted.filter((e) => parseDate(e.date) < today).reverse();
+
+  if (upcoming.length) {
+    upcoming.forEach((e, i) => $("upcoming").append(renderEvent(e, { next: i === 0 })));
+  } else {
+    $("upcoming").append(el("li", "empty", "No talks scheduled right now — check back soon."));
+  }
+  if (past.length) past.forEach((e) => $("past").append(renderEvent(e, { past: true })));
+  else $("past-section").hidden = true;
+
+  // Logistics
+  const lg = $("logistics");
+  const line = (label, value) => { const p = el("p"); p.append(el("strong", null, label + " "), value); lg.append(p); };
+  if (SERIES.when) line("When:", SERIES.when);
+  if (SERIES.where) line("Where:", SERIES.where);
+  if (SERIES.mailingList) line("Announcements:", link(SERIES.mailingList, "join the mailing list"));
+  if (SERIES.contactEmail) line("Contact:", link("mailto:" + SERIES.contactEmail, SERIES.contactEmail));
+  if (!lg.childNodes.length) $("logistics-section").hidden = true;
+
+  // Organizers
+  ORGANIZERS.forEach((o) => {
+    const li = el("li");
+    const name = el("div", "name");
+    name.append(o.url ? link(o.url, o.name) : o.name);
+    li.append(name);
+    if (o.affiliation) li.append(el("div", "aff", o.affiliation));
+    $("organizers").append(li);
+  });
+
+  // Footer
+  const f = $("footer");
+  f.append(el("div", null, SERIES.title + " · " + SERIES.institution),
+           el("div", null, "31 Caroline Street North, Waterloo, Ontario, Canada, N2L 2Y5"));
+</script>
+</body>
+</html>
