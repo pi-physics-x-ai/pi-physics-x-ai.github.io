@@ -20,7 +20,7 @@ const SERIES = {
 const ORGANIZERS = [
   { name: "Kendrick Smith", affiliation: "Perimeter Institute", url: "" },
   { name: "Benoît Assi", affiliation: "Perimeter Institute", url: "" },
-  { name: "Lizzie Pratt", affiliation: "Perimeter Institute", url: "" },
+  { name: "Lizzie Pratt", affiliation: "Perimeter Institute", url: "https://lizziepratt.com" },
   { name: "Yurii Kvasiuk", affiliation: "Perimeter Institute", url: "" },
 ];
 
