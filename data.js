@@ -11,17 +11,17 @@ const SERIES = {
     "machine learning, and everything in between.",
   // Default details shown in the "Logistics" section. Leave "" to hide a line.
   when: "Thursdays, 11:00 am ET",
-  where: "Perimeter Institute",
+  where: "Room TBA, Perimeter Institute",
   mailingList: "",   // URL to subscribe, or ""
   contactEmail: "",  // or ""
 };
 
-// The four organizers. `url` and `affiliation` are optional.
+// The four organizers. `email`, `url` and `affiliation` are optional.
 const ORGANIZERS = [
-  { name: "Kendrick Smith", affiliation: "Perimeter Institute", url: "" },
-  { name: "Benoît Assi", affiliation: "Perimeter Institute", url: "" },
-  { name: "Lizzie Pratt", affiliation: "Perimeter Institute", url: "https://lizziepratt.com" },
-  { name: "Yurii Kvasiuk", affiliation: "Perimeter Institute", url: "" },
+  { name: "Kendrick Smith", email: "kmsmith@perimeterinstitute.ca", affiliation: "Perimeter Institute", url: "" },
+  { name: "Benoît Assi", email: "bassi@perimeterinstitute.ca", affiliation: "Perimeter Institute", url: "" },
+  { name: "Lizzie Pratt", email: "lpratt@perimeterinstitute.ca", affiliation: "Perimeter Institute", url: "https://lizziepratt.com" },
+  { name: "Yurii Kvasiuk", email: "ykvasiuk@perimeterinstitute.ca", affiliation: "Perimeter Institute", url: "" },
 ];
 
 // Talks, in any order. The page sorts them and splits upcoming / past

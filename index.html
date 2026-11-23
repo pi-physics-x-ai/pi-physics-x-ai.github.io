@@ -82,10 +82,11 @@
 
   .panel { background: var(--card); padding: 22px 24px; }
   .panel p { margin: 4px 0; }
-  .organizers { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .organizers { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
   .organizers li { background: var(--card); padding: 18px 20px; border-top: 3px solid var(--blue); }
   .organizers .name { font-weight: 600; }
   .organizers .aff { font-size: 14px; color: var(--soft); }
+  .organizers .email { font-size: 14px; overflow-wrap: anywhere; }
   .empty { background: var(--card); padding: 22px 24px; color: var(--muted); }
 
   footer { background: var(--black); color: #fff; margin-top: 80px; padding: 36px 0; font-size: 14px; line-height: 1.7; }
@@ -234,6 +235,7 @@
     name.append(o.url ? link(o.url, o.name) : o.name);
     li.append(name);
     if (o.affiliation) li.append(el("div", "aff", o.affiliation));
+    if (o.email) li.append(link("mailto:" + o.email, o.email, "email"));
     $("organizers").append(li);
   });
 
