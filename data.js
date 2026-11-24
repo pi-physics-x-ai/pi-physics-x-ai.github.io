@@ -16,6 +16,19 @@ const SERIES = {
   contactEmail: "",  // or ""
 };
 
+// The "Schedule" calendar: one row per weekly slot, marked taken (a talk in
+// EVENTS has that date) or open.
+const SCHEDULE = {
+  weekday: 4,                 // 0 = Sunday … 4 = Thursday
+  firstDate: "2026-12-03",    // first slot of the series
+  weeksShown: 16,             // how many weeks ahead to list
+  // Dates with no seminar (holidays etc.): "YYYY-MM-DD": "reason"
+  noSeminar: {
+    "2026-12-24": "Holiday break",
+    "2026-12-31": "Holiday break",
+  },
+};
+
 // The four organizers. `email`, `url` and `affiliation` are optional.
 const ORGANIZERS = [
   { name: "Kendrick Smith", email: "kmsmith@perimeterinstitute.ca", affiliation: "Perimeter Institute", url: "" },
@@ -37,13 +50,6 @@ const ORGANIZERS = [
 //   recording / slides: optional, shown for past talks
 //
 const EVENTS = [
-  {
-    date: "2026-11-26",
-    time: "11:00 am ET",
-    speaker: "",
-    affiliation: "",
-    title: "TBA",
-  },
   {
     date: "2026-12-03",
     time: "11:00 am ET",

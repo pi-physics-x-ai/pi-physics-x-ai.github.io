@@ -89,6 +89,25 @@
   .organizers .email { font-size: 14px; overflow-wrap: anywhere; }
   .empty { background: var(--card); padding: 22px 24px; color: var(--muted); }
 
+  /* Weekly slot calendar */
+  .lead { margin: -8px 0 16px; color: var(--muted); }
+  .slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2px; }
+  .slot {
+    display: grid; grid-template-columns: 64px 1fr; align-items: baseline; gap: 10px;
+    background: var(--card); padding: 9px 14px; font-size: 15px; border-left: 3px solid var(--line);
+  }
+  .slot .d { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .slot .who { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .slot.open { border-left-color: var(--blue); }
+  .slot.open .who { color: var(--blue); font-weight: 600; }
+  .slot.off { background: none; }
+  .slot.off .d, .slot.off .who { color: var(--soft); font-weight: 400; }
+  .month {
+    grid-column: 1 / -1; font-size: 12px; font-weight: 600; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--soft); margin: 14px 0 4px;
+  }
+  .month:first-child { margin-top: 0; }
+
   footer { background: var(--black); color: #fff; margin-top: 80px; padding: 36px 0; font-size: 14px; line-height: 1.7; }
   footer a { color: #fff; }
 
@@ -120,12 +139,18 @@
     <ul id="upcoming"></ul>
   </section>
 
+  <section id="schedule">
+    <h2>Schedule</h2>
+    <p class="lead" id="schedule-lead"></p>
+    <ul class="slots" id="slots"></ul>
+  </section>
+
   <section id="logistics-section">
     <h2>Logistics</h2>
     <div class="panel" id="logistics"></div>
   </section>
 
-  <section>
+  <section id="organizers-section">
     <h2>Organizers</h2>
     <ul class="organizers" id="organizers"></ul>
   </section>
@@ -218,6 +243,36 @@
   }
   if (past.length) past.forEach((e) => $("past").append(renderEvent(e, { past: true })));
   else $("past-section").hidden = true;
+
+  // Weekly slot calendar
+  if (typeof SCHEDULE !== "undefined" && SCHEDULE.weeksShown > 0) {
+    const iso = (d) => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    const byDate = {};
+    EVENTS.forEach((e) => { byDate[e.date] = e; });
+    const d = new Date(Math.max(today, parseDate(SCHEDULE.firstDate)));
+    while (d.getDay() !== SCHEDULE.weekday) d.setDate(d.getDate() + 1);
+    let month = "", open = 0;
+    for (let i = 0; i < SCHEDULE.weeksShown; i++, d.setDate(d.getDate() + 7)) {
+      const m = fmt(d, { month: "long", year: "numeric" });
+      if (m !== month) { month = m; $("slots").append(el("li", "month", m)); }
+      const key = iso(d), ev = byDate[key], off = (SCHEDULE.noSeminar || {})[key];
+      const li = el("li", "slot" + (off ? " off" : ev ? "" : " open"));
+      const who = off ? off : ev ? (ev.speaker || "Reserved") : "Open";
+      if (!off && !ev) open++;
+      const w = el("span", "who", who);
+      if (ev && !off) w.title = ev.speaker + (ev.title && ev.title !== "TBA" ? " — " + ev.title : "");
+      li.append(el("span", "d", fmt(d, { month: "short", day: "numeric" })), w);
+      $("slots").append(li);
+    }
+    const lead = $("schedule-lead");
+    lead.append(fmt(new Date(2026, 0, 4 + SCHEDULE.weekday), { weekday: "long" }) + "s" +
+                (SERIES.when.match(/\d.*$/) ? ", " + SERIES.when.match(/\d.*$/)[0] : "") +
+                ". " + open + " open slot" + (open === 1 ? "" : "s") + " in the next " + SCHEDULE.weeksShown +
+                " weeks — to take one, email one of the ");
+    lead.append(link("#organizers-section", "organizers"), ".");
+  } else {
+    $("schedule").hidden = true;
+  }
 
   // Logistics
   const lg = $("logistics");
