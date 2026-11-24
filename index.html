@@ -245,14 +245,14 @@
   else $("past-section").hidden = true;
 
   // Weekly slot calendar
-  if (typeof SCHEDULE !== "undefined" && SCHEDULE.weeksShown > 0) {
+  if (typeof SCHEDULE !== "undefined" && SCHEDULE.lastDate) {
     const iso = (d) => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
     const byDate = {};
     EVENTS.forEach((e) => { byDate[e.date] = e; });
     const d = new Date(Math.max(today, parseDate(SCHEDULE.firstDate)));
     while (d.getDay() !== SCHEDULE.weekday) d.setDate(d.getDate() + 1);
     let month = "", open = 0;
-    for (let i = 0; i < SCHEDULE.weeksShown; i++, d.setDate(d.getDate() + 7)) {
+    for (const end = parseDate(SCHEDULE.lastDate); d <= end; d.setDate(d.getDate() + 7)) {
       const m = fmt(d, { month: "long", year: "numeric" });
       if (m !== month) { month = m; $("slots").append(el("li", "month", m)); }
       const key = iso(d), ev = byDate[key], off = (SCHEDULE.noSeminar || {})[key];
@@ -267,8 +267,8 @@
     const lead = $("schedule-lead");
     lead.append(fmt(new Date(2026, 0, 4 + SCHEDULE.weekday), { weekday: "long" }) + "s" +
                 (SERIES.when.match(/\d.*$/) ? ", " + SERIES.when.match(/\d.*$/)[0] : "") +
-                ". " + open + " open slot" + (open === 1 ? "" : "s") + " in the next " + SCHEDULE.weeksShown +
-                " weeks — to take one, email one of the ");
+                ". " + open + " open slot" + (open === 1 ? "" : "s") + " through " +
+                fmt(parseDate(SCHEDULE.lastDate), { month: "long", year: "numeric" }) + " — to take one, email one of the ");
     lead.append(link("#organizers-section", "organizers"), ".");
   } else {
     $("schedule").hidden = true;

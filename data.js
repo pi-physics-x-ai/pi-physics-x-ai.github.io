@@ -21,7 +21,7 @@ const SERIES = {
 const SCHEDULE = {
   weekday: 4,                 // 0 = Sunday … 4 = Thursday
   firstDate: "2026-12-03",    // first slot of the series
-  weeksShown: 16,             // how many weeks ahead to list
+  lastDate: "2027-05-31",     // list slots up to this date
   // Dates with no seminar (holidays etc.): "YYYY-MM-DD": "reason"
   noSeminar: {
     "2026-12-24": "Holiday break",
