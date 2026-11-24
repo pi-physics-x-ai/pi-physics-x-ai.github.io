@@ -34,7 +34,7 @@ const ORGANIZERS = [
   { name: "Kendrick Smith", email: "kmsmith@perimeterinstitute.ca", affiliation: "Perimeter Institute", url: "" },
   { name: "Benoît Assi", email: "bassi@perimeterinstitute.ca", affiliation: "Perimeter Institute", url: "" },
   { name: "Lizzie Pratt", email: "lpratt@perimeterinstitute.ca", affiliation: "Perimeter Institute", url: "https://lizziepratt.com" },
-  { name: "Yurii Kvasiuk", email: "ykvasiuk@perimeterinstitute.ca", affiliation: "Perimeter Institute", url: "" },
+  { name: "Yurii Kvasiuk", email: "ykvasiuk@perimeterinstitute.ca", affiliation: "Perimeter Institute", url: "https://ykvasiuk.github.io" },
 ];
 
 // Talks, in any order. The page sorts them and splits upcoming / past
