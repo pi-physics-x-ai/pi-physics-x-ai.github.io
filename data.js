@@ -40,6 +40,13 @@ const EVENTS = [
   {
     date: "2026-11-26",
     time: "11:00 am ET",
+    speaker: "",
+    affiliation: "",
+    title: "TBA",
+  },
+  {
+    date: "2026-12-03",
+    time: "11:00 am ET",
     speaker: "Erik Schnetter",
     speakerUrl: "http://www.perimeterinstitute.ca/personal/eschnetter/",
     affiliation: "Perimeter Institute",
