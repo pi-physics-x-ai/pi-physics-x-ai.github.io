@@ -66,4 +66,11 @@ const EVENTS = [
       "skills, etc., which are mostly rather simple ideas hiding behind " +
       "impressive words.",
   },
+  {
+    date: "2027-03-18",
+    time: "11:00 am ET",
+    speaker: "David Shih",
+    affiliation: "Rutgers University",
+    title: "TBA",
+  },
 ];
