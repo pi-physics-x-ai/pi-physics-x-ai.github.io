@@ -67,6 +67,13 @@ const EVENTS = [
       "impressive words.",
   },
   {
+    date: "2026-12-10",
+    time: "11:00 am ET",
+    speaker: "Zohar Ringel",
+    affiliation: "Hebrew University of Jerusalem",
+    title: "Journal club",
+  },
+  {
     date: "2027-03-18",
     time: "11:00 am ET",
     speaker: "David Shih",
