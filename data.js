@@ -71,7 +71,7 @@ const EVENTS = [
     time: "11:00 am ET",
     speaker: "Zohar Ringel",
     affiliation: "Hebrew University of Jerusalem",
-    title: "Journal club",
+    title: "Introduction to Transformers",
   },
   {
     date: "2027-03-18",
